@@ -1,29 +1,19 @@
 import React from 'react';
-import './SignIn.css';
+import Header from './Header';
+import Footer from "./Footer"
+import '../styles/SignIn.css';
+import logo from '../assets/logo.png'
 
 const SignIn = () => {
   return (
     <div className="signin-wrapper">
-      <header>
-  <nav className="nav-left">
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/contact">Contact</a></li>
-      <li><a href="/about">About</a></li>
-    </ul>
-  </nav>
-  <nav className="nav-right">
-    <ul>
-      <li><a href="/signin">Signin/Signup</a></li>
-    </ul>
-  </nav>
-</header>
+      <Header />
       <main>
         <div className="signin-container">
-          <h1>WaitOntario</h1>
+          <img src={logo} className='logo' alt="Logo" />
           <form className="signin-form">
             <h2>Sign in</h2>
-            <p>Stay update date with waiting</p>
+            <p>Stay up to date with waiting</p>
             <input type="text" placeholder="Email or username" />
             <input type="password" placeholder="Password" />
             <a href="#" className="forgot-password">Forgot password?</a>
@@ -32,9 +22,7 @@ const SignIn = () => {
           </form>
         </div>
       </main>
-      <footer>
-        <a href="#">Report Issue</a>
-      </footer>
+      <Footer />
     </div>
   );
 };
