@@ -1,0 +1,35 @@
+header {
+  background-color: #4CAF50; 
+  color: white; 
+  width: 100%; 
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  position: fixed; 
+  font-weight: bold;
+}
+
+header {
+  top: 0; 
+  left: 0; 
+  right: 0;
+}
+
+nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+}
+
+nav a {
+  text-decoration: none;
+  color: white; 
+  margin: 0 15px; 
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: blue;
+}
