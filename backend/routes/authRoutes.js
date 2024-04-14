@@ -45,6 +45,7 @@ router.get("/emails", async (req, res) => {
         const users = await User.find({}, 'email'); // Fetch all users and only return the email field
         const emails = users.map(user => user.email); // Extract emails from user objects
         res.json(emails);
+        
     } catch (err) {
         console.error(err);
         res.status(500).json({ message: "Internal Server Error" });

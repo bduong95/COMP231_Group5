@@ -1,18 +1,18 @@
 header {
-  background-color: #4CAF50; 
-  color: white; 
-  width: 100%; 
+  background-color: #4CAF50;
+  color: white;
+  width: 100%;
   padding: 1rem 0;
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
-  position: fixed; 
+  position: fixed;
   font-weight: bold;
 }
 
 header {
-  top: 0; 
-  left: 0; 
+  top: 0;
+  left: 0;
   right: 0;
 }
 
@@ -25,11 +25,31 @@ nav ul {
 
 nav a {
   text-decoration: none;
-  color: white; 
-  margin: 0 15px; 
+  color: white;
+  margin: 0 15px;
   font-weight: bold;
 }
 
 nav a:hover {
   color: blue;
+}
+
+.logout-text {
+  cursor: pointer;
+  color: #fff;
+  margin: 0 15px;
+  transition: background-color 0.3s; /* Add transition for smooth color change */
+}
+
+.logout-text:hover {
+  color: blue;
+}
+
+.user-info {
+  margin-right: 15px; /* Adjust spacing as needed */
+  color: white; /* Set initial color */
+}
+
+.user-info:hover {
+  color: blue; /* Change color on hover */
 }

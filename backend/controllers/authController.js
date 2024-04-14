@@ -43,7 +43,7 @@ exports.register = async (req, res) => {
 
 exports.login = async (req, res) => {
 	const { emailOrUsername, password } = req.body;
-
+  
 	try {
 	  // Find user by email or username
 	  const user = await User.findOne({ $or: [{ email: emailOrUsername }, { username: emailOrUsername }] });
@@ -54,8 +54,11 @@ exports.login = async (req, res) => {
 	  // Check password
 	  const isMatch = await bcrypt.compare(password, user.password);
 	  if (isMatch) {
+		// Generate JWT token
 		const token = jwt.sign({ userId: user._id }, 'secret');
-		return res.json({ token });
+  
+		// Send user data along with token
+		return res.json({ token, user });
 	  } else {
 		return res.status(400).json({ message: 'Invalid credentials' });
 	  }
@@ -63,7 +66,8 @@ exports.login = async (req, res) => {
 	  console.error('Error logging in user:', err);
 	  return res.status(500).json({ message: 'Internal server error' });
 	}
-};
+  };
+  
 
 
 exports.forgotPassword = async (req, res) => {

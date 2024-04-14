@@ -1,8 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Header.css'
+import { useAuth } from './AuthContext'; // Import the useAuth hook
+import '../styles/Header.css';
 
-const Header = () => {
+const Header = ({ user }) => {
+  const auth = useAuth(); // Get authentication context
+  console.log(auth);
+
+  const handleLogout = () => {
+    auth.logout(); // Call the logout function
+  };
+
   return (
     <header>
       <nav className="nav-left">
@@ -14,12 +22,22 @@ const Header = () => {
       </nav>
       <nav className="nav-right">
         <ul>
-          <li><Link to="/signin">Log In</Link></li>
-          <li>/</li>
-          <li><Link to="/signup">Sign Up</Link></li>
+          {/* Conditionally render user's email or login/signup links */}
+          {auth.user ? (
+            <>
+              <li>Welcome {auth.user.firstname}</li> {/* Accessing user email here */}
+              <li onClick={handleLogout} className="logout-text">( Logout )</li> {/* Make text clickable */}
+            </>
+          ) : (
+            <>
+              <li><Link to="/signin">Log In</Link></li>
+              <li>/</li>
+              <li><Link to="/signup">Sign Up</Link></li>
+            </>
+          )}
         </ul>
       </nav>
-  </header>
+    </header>
   );
 };
 

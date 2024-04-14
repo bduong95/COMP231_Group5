@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import logo from '../assets/logo.png';
@@ -24,7 +25,7 @@ const HomePage = () => {
             <option value="richmondhill">Richmond Hill</option>
             <option value="ajax">Ajax</option>
           </select>
-          <a href="/joinwaitlist" className="circular-button">Join Waitlist</a>
+          <Link to="/join" className="circular-button">Join Waitlist</Link> 
         </div>
       </div>
       <Footer />
