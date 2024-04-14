@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const authRoutes = require('./routes/authRoutes');
 //const userRoutes = require('./routes/userRoutes');
 const dashboardRoutes = require('./routes/dashboard');
@@ -11,6 +12,7 @@ const listEndpoints = require('express-list-endpoints')
 
 
 const app = express();
+app.use(cors()); // Enable CORS for all routes
 app.use(bodyParser.json());
 
 mongoose.connect(process.env.MONGODB_CONNECTION_STRING)
